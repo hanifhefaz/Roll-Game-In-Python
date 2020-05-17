@@ -1,6 +1,9 @@
 # python_lucky_roll
 A simple luck roll game in python
 
+## How to run
+This is a basic structure of the game, on how it will work, the final production will be in GUI form. please donwload this script and run it locally with your python compiler!
+
 This is an underwork project for my free time. New rules will be added soon.
 
 Hello Everyone,
