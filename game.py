@@ -2,46 +2,49 @@ from tkinter import *
 import random
 import time
 import random
+while True:
+	print("Welcome")
+	startamount = int(input("Please enter your start amount:"))
+	print("Your balance is: ", startamount)
 
-top = Tk()
-top.geometry("800x600")
-top.title("Luck Roll")
-#-------------------------------------------------------------------
+	betamount = int(input("Please enter your bet amount:"))
+	balance = startamount - betamount
+	print("Your balance is: ", balance)
 
+	selectnumber = int(input("Please select your lucky number:"))
+	print("Your lucky number is: ", selectnumber)
 
+	print("Select if generated number will be greater or smaller then your lucky number")
+	selectchoice = input("Type G for greater and S for smaller: ")
+	print("Your choice is: ",selectchoice)
 
+	rolldraw = input("Type !r to roll: ")
 
-#-------------------------------------------------------------------
+	if (rolldraw == '!r'):
+		rand = random.randint(0,99)
+		print("The random number generated is: ", rand)
+		if((rand > selectnumber) and (selectchoice == 'G')):
+			won = betamount * 2
+			balance = balance + won
+			print("Congrats! you won",won)
+			print("Your curret balance is: ",balance)
+		elif ((rand > selectnumber) and (selectchoice == 'S')):
+			lost = betamount
+			balance = balance - betamount
+			print("Sorry you lost ",lost)
+			print("Your curret balance is: ",balance)
+		elif ((rand < selectnumber) and (selectchoice == 'S')):
+			won = betamount * 2
+			balance = balance + won
+			print("Congrats! you won",won)
+			print("Your curret balance is: ",balance)
+		elif ((rand < selectnumber) and (selectchoice == 'G')):
+			lost = betamount
+			balance = balance - betamount
+			print("Sorry you lost ",lost)
+			print("Your curret balance is: ",balance)
+		else:
+			print("Though Luck")
 
-#-------------------------------------------------------------------
-def genrandom():
-	rr = random.randrange(0,99)
-	randomresult = Label(top, text = rr).place(x = 280,y = 150)
-	if (rr == 1):
-		multiplier = rr * 1.01
-	elif (rr == 2):
-		multiplier = rr * 1.02
-	elif (rr == 3):
-		multiplier = rr * 1.03
-	elif (rr == 4):
-		multiplier = rr * 1.04
-	elif (rr == 5):
-		multiplier = rr * 1.05
-	elif (rr == 6):
-		multiplier = rr * 1.06
-	elif (rr == 7):
-		multiplier = rr * 1.07
-	elif (rr == 8):
-		multiplier = rr * 1.08
-	elif (rr == 9):
-		multiplier = rr * 1.09
 	else:
-		multiplier = rr * 2
-	multiplier_result = Label(top, text = multiplier).place(x = 280,y = 250)
-	newac = multiplier_result + initial_amount
-grand = Button(top, text = "Roll",activebackground = "pink", activeforeground = "blue",command = genrandom).place(x = 220, y = 150) 
- #------------------------------------------------------------------
-
-
-
-top.mainloop()
+		print("Please type '!r' ")
