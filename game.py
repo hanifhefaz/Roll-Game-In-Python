@@ -2,15 +2,17 @@ from tkinter import *
 import random
 import time
 import random
+
+print("Welcome")
+startamount = int(input("Please enter your start amount:"))
+print("Your balance is: ", startamount)
+
+betamount = int(input("Please enter your bet amount:"))
+if (betamount>startamount):
+	print("You dont have enough balance")
+balance = startamount - betamount
+print("Your balance is: ", balance)
 while True:
-	print("Welcome")
-	startamount = int(input("Please enter your start amount:"))
-	print("Your balance is: ", startamount)
-
-	betamount = int(input("Please enter your bet amount:"))
-	balance = startamount - betamount
-	print("Your balance is: ", balance)
-
 	selectnumber = int(input("Please select your lucky number:"))
 	print("Your lucky number is: ", selectnumber)
 
